@@ -1,10 +1,13 @@
 import React from 'react';
+import Image from 'next/image';
 
 function Header() {
   return (
-    <header className='py-3 px-10  w-full flex justify-between'>
+    <header className='py-3  w-full flex justify-between'>
       <div className='flex items-center gap-3 text-lg '>
-        <div className='text-black w-10 aspect-square bg-black rounded-full'></div>
+        <div className='relative   w-10 overflow-hidden aspect-square  rounded-full'>
+          <Image src={'/images/default.jpg'} alt='user image' fill />
+        </div>
         <span>azdine bouali</span>
       </div>
       <div className='flex items-center gap-4 p-1 text-sm'>

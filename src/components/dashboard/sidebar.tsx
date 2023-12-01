@@ -1,12 +1,27 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import { Quick } from '../logo/svg';
 import NavItem from './navItem';
 import { Car } from './icones/car';
 import { Register } from './icones/register';
 import { Tutorials } from './icones/Tutorials';
 import { Help } from './icones/Help';
+import { Dashboard } from './icones/dashboard';
+import { usePathname } from 'next/navigation';
 
 function Sidebar() {
+  const [active, setActive] = React.useState('dashboard');
+  const router = usePathname();
+
+  useEffect(() => {
+    if (router === '/dashboard') {
+      setActive('dashboard');
+    } else if (router === '/dashboard/register') {
+      setActive('register');
+    } else if (router === '/dashboard/car-listings') {
+      setActive('car listings');
+    }
+  }, [router]);
   return (
     <aside className='border-r bg-stone-50 p-3 min-w-[280px] w-1/6 h-screen flex flex-col gap-2 '>
       <section className='  p-1'>
@@ -25,6 +40,7 @@ function Sidebar() {
               href={item.href}
               svg={item.svg}
               title={item.title}
+              active={active === item.title}
             />
           ))}
         </ul>
@@ -74,6 +90,11 @@ function Sidebar() {
 export default Sidebar;
 
 const navigation = [
+  {
+    title: 'dashboard',
+    href: '/dashboard',
+    svg: <Dashboard />,
+  },
   {
     title: 'register',
     href: '/dashboard/register',

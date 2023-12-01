@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <div className='flex border'>
       <Sidebar />
-      <section className='flex-grow'>
+      <section className='flex-grow px-10'>
         <Header />
         {children}
       </section>
