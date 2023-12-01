@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { Login } from '@/utils/actions';
-import { InputField } from '../signup/page';
+import { InputField } from '@/components/dashboard/inputfields';
 import { Toaster, toast } from 'sonner';
 
 interface UserType {
